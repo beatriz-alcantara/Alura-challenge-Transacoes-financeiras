@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Importacao>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-start">
+    <div id="area-alerta"></div>
+    <h3> Leitor de Arquivos </h3>
+    <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile01" input="getFile" />
+    </div>
+   <button onclick="getFile()" class="btn btn-primary" type="button">Button</button>
+   <h3> Registro de Importações </h3>
+   <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Data Transações</th>
+          <th scope="col">Data Importação</th>
+        </tr>
+      </thead>
+      <tbody>
+            @foreach(var importacao in Model)
+            {
+                <tr>
+                  <td>@importacao.DataTransacoes</td>
+                  <td>@importacao.DataImportacao</td>
+                </tr>
+            }
+      </tbody>
+    </table>
+</div>
+
+<script>
+    const input = document.getElementById('inputGroupFile01')
+
+    function getFile() {
+        const leitor = new FileReader()
+        let fileBase64 = ''
+        const header = new Headers();
+        header.append('Content-Type', "multipart/form-data")
+        leitor.addEventListener('loadend', () => {
+            fileBase64 = leitor.result
+            fetch("/getFile", { method: 'POST', headers: header, body: fileBase64 })
+            .then(res => {
+                return res.json()
+                
+            })
+            .then(obj => {
+                if (obj) {
+                    switch (obj.status) {
+                        case 0:
+                          criandoAlerts(obj.mensagem, 'success')
+                        break
+                        case 1:
+                          criandoAlerts(obj.mensagem, 'danger')
+                        break
+                    }
+                }
+            })
+        })
+        leitor.readAsDataURL(input.files[0])
+    }
+
+    function criandoAlerts(message, tipo) {
+        var wrapper = document.createElement('div')
+        wrapper.innerHTML = `<div class="alert alert-${tipo} alert-dismissible fade show" role="alert"> ${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`
+        $('#area-alerta').html(wrapper)
+        setTimeout(() => {
+            $('.alert').remove()
+            console.log('removendo')
+        }, 5000)
+        
+    }
+
+</script>
