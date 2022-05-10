@@ -1,6 +1,7 @@
 ﻿using Alura_Challange_Transacao_Financeira.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using ProvedorArmazenamentoIDMongo.Modelos;
 
 namespace Alura_Challange_Transacao_Financeira.Repository
 {

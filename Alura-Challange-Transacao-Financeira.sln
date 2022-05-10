@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alura-Challange-Transacao-Financeira", "Alura-Challange-Transacao-Financeira.csproj", "{5544408E-346D-4E12-8B01-47D90E8052B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alura-Challange-Transacao-Financeira", "Alura-Challange-Transacao-Financeira.csproj", "{5544408E-346D-4E12-8B01-47D90E8052B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Provedor Armazenamento identity", "Provedor Armazenamento identity", "{FE16E18D-2D78-49D6-8A92-D94CBB217BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvedorArmazenamentoIDMongo", "..\ProvedorArmazenamentoIDMongo\ProvedorArmazenamentoIDMongo.csproj", "{C8C08637-E5EA-4107-8A0D-9A118C2E46E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{5544408E-346D-4E12-8B01-47D90E8052B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5544408E-346D-4E12-8B01-47D90E8052B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5544408E-346D-4E12-8B01-47D90E8052B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8C08637-E5EA-4107-8A0D-9A118C2E46E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C08637-E5EA-4107-8A0D-9A118C2E46E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C08637-E5EA-4107-8A0D-9A118C2E46E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C08637-E5EA-4107-8A0D-9A118C2E46E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8C08637-E5EA-4107-8A0D-9A118C2E46E4} = {FE16E18D-2D78-49D6-8A92-D94CBB217BEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A2A8389-8AB3-4143-BFCB-EEA2221B3D26}

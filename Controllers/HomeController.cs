@@ -1,11 +1,13 @@
 ﻿using Alura_Challange_Transacao_Financeira.Models;
 using Alura_Challange_Transacao_Financeira.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text;
 
 namespace Alura_Challange_Transacao_Financeira.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,7 +21,7 @@ namespace Alura_Challange_Transacao_Financeira.Controllers
             _importacoesRepository = importacoesRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
             return View(await _importacoesRepository.GetAllRegistros());
         }
